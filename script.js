@@ -17,8 +17,8 @@ function userPlay(){
 }
 
 function playRound(playerSelection,computerSelection){
-  console.log(`You choosed: ${playerSelection}`)
-  console.log(`The PC choosed: ${computerSelection}`)
+  console.log(`You choosed: ${playerSelection}`);
+  console.log(`The PC choosed: ${computerSelection}`);
   
   if (playerSelection == computerSelection){
     message = 'ITS A DRAAW!';
