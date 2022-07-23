@@ -1,3 +1,5 @@
+const container = document.querySelector('#container');
+
 
 function computerPlay(){
 
@@ -10,16 +12,17 @@ function computerPlay(){
     
 }
 
-function userPlay(){
-  let x = window.prompt("Rock, paper, scissors! Go!: ");
-  let y = x.toLowerCase(); 
-  return y;
-}
-
 function playRound(playerSelection,computerSelection){
-  console.log(`You choosed: ${playerSelection}`);
-  console.log(`The PC choosed: ${computerSelection}`);
-  
+
+  const playerPara = document.createElement('p');
+  playerPara.classList.add('playerPara');
+  playerPara.textContent =`You choosed: ${playerSelection}`;
+  container.appendChild(playerPara);
+  const computerPara = document.createElement('p');
+  computerPara.classList.add('computerPara');
+  computerPara.textContent = `The PC choosed: ${computerSelection}`;
+  container.appendChild(computerPara);
+
   if (playerSelection == computerSelection){
     message = 'ITS A DRAAW!';
   }else if((playerSelection == 'rock') && (computerSelection == 'scissors')){
@@ -35,10 +38,15 @@ function playRound(playerSelection,computerSelection){
   }else if((playerSelection == 'scissors') && (computerSelection == 'paper')){
     message = 'YOU WIN!';
   }
-  return message;
+  const para = document.createElement('p');
+  para.classList.add('para');
+  para.textContent = `${message}`;
+  container.appendChild(para);
 }
-function main(){
-const playerSelection = userPlay();
+
+function main(userInput){
+const playerSelection = userInput;
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection,computerSelection));
 }
+
